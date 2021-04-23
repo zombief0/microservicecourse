@@ -1,0 +1,46 @@
+POST http://localhost:8082/users-ws/users
+Content-Type: application/json
+
+{
+  "firstName": "Norman",
+  "lastName": "Mbouende",
+  "password": "665222668",
+  "email": "mbouendenorman@gmail.com"
+}
+
+###
+POST http://localhost:8082/users-ws/users/login
+Content-Type: application/json
+
+{
+  "password": "665222668",
+  "email": "mbouendenorman@gmail.com"
+}
+
+###
+GET http://localhost:8082/users-ws/users/status/check
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNGU5OWY2OS1hMzUyLTQ0ZDItYjQxNi0zNjlkZTJlYWJiYzQiLCJleHAiOjE2MTg5MzUxMjV9.gn6HtpV4xpiXVP3luJ66deE7zseRZAbJxe2mfAIq-TihIomnQAVJ1hdw_bFX8cTHbgIfL_IJTlGKbt22dF9HRw
+
+### in order to push config files to spring cloud bus
+POST http://localhost:8012/actuator/busrefresh
+### to check current config on config server
+GET http://localhost:8012/actuator/bus-refresh
+### to check config files on users microservices
+GET http://localhost:8012/users-ws/default
+###
+GET http://localhost:8082/actuator/beans
+###
+GET http://localhost:8082/users-ws/actuator/mappings
+###
+GET http://localhost:8082/users-ws/users/6cc95216-0533-455e-bcf9-1143a11d8edf
+### to encrypt a text via config server
+POST http://localhost:8012/encrypt
+Content-Type: text/plain
+
+uiuxdesignnotforme
+
+### to decrypt a text via config server
+POST http://localhost:8012/decrypt
+Content-Type: text/plain
+
+d94c7a8bc56de0771d59a5858aa7c928df3ff04caaebee6de79df3f7ba4235cb
